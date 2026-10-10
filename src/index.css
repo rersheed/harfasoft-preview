@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/plus-jakarta-sans";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans Variable", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-navy: #0B1B3F;
+  --color-navy-900: #07122B;
+  --color-navy-800: #0F2350;
+  --color-brand: #1E5EFF;
+  --color-brand-600: #184BD1;
+  --color-cyan: #22D3EE;
+  --color-offwhite: #F7F9FC;
+}
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+:focus-visible { outline: 3px solid var(--color-cyan); outline-offset: 3px; border-radius: 6px; }
+
+/* Reveal-on-scroll: content is visible by default (SEO / no-JS); only hidden when JS is present. */
+html.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+html.js .reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { html.js .reveal { opacity: 1; transform: none; } }
+
+.text-gradient { background: linear-gradient(90deg, #60A5FA, #22D3EE); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.bg-grid {
+  background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.bg-grid-light {
+  background-image: linear-gradient(rgba(11,27,63,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(11,27,63,.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
